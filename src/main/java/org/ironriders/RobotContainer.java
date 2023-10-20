@@ -5,11 +5,14 @@
 
 package org.ironriders;
 
+import edu.wpi.first.wpilibj2.command.Commands;
 import org.ironriders.Constants.OperatorConstants;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import org.ironriders.subsystems.LightsSubsystem;
 
+import static org.ironriders.subsystems.LightsSubsystem.LightMode.*;
 
 
 /**
@@ -19,10 +22,11 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  * subsystems, commands, and trigger mappings) should be declared here.
  */
 public class RobotContainer {
-    private final CommandXboxController driverController =
+   private final LightsSubsystem light=new LightsSubsystem(RAINBOW);
+    private final CommandXboxController controller =
             new CommandXboxController(OperatorConstants.DRIVER_CONTROLLER_PORT);
     
-    
+
     /** The container for the robot. Contains subsystems, OI devices, and commands. */
     public RobotContainer() {
         configureBindings();
@@ -39,6 +43,12 @@ public class RobotContainer {
      * joysticks}.
      */
     private void configureBindings() {
+        controller.button(0).onTrue(
+                Commands.run(()->light.setLightMode(GOLD),light)
+        );
+        controller.button(0).onTrue(
+                Commands.run(()->light.setLightMode(BROWN),light)
+        );
     }
     
     
