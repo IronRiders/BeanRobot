@@ -46,7 +46,7 @@ public class RobotContainer {
         controller.button(0).onTrue(
                 Commands.run(()->light.setLightMode(GOLD),light)
         );
-        controller.button(0).onTrue(
+        controller.button(1).onTrue(
                 Commands.run(()->light.setLightMode(BROWN),light)
         );
     }
