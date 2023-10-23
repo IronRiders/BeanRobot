@@ -43,11 +43,17 @@ public class RobotContainer {
      * joysticks}.
      */
     private void configureBindings() {
-        controller.button(0).onTrue(
+        controller.button(1).onTrue(
                 Commands.run(()->light.setLightMode(GOLD),light)
         );
-        controller.button(1).onTrue(
+        controller.button(2).onTrue(
                 Commands.run(()->light.setLightMode(BROWN),light)
+        );
+        controller.button(3).onTrue(
+                Commands.run(()->light.setLightMode(OFF),light)
+        );
+        controller.button(4).onTrue(
+                Commands.run(()->light.setLightMode(GREEN),light)
         );
     }
     
