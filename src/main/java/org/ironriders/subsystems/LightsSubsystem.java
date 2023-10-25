@@ -45,11 +45,11 @@ addressableLED.setData(ledBuffer);
     public void periodic() {
         super.periodic();
         switch (lightMode){
-            case OFF ->{setColorRGB(0,0,0);}
-            case GREEN ->{setColorRGB(0,255,0);}
-            case GOLD ->{setColorRGB(255,255,0);}
-            case RAINBOW -> {rainbow();}
-            case BROWN -> {setColorRGB(120, 90, 7);}
+            case OFF ->setColorRGB(0,0,0);
+            case GREEN -> setColorRGB(0,255,0);
+            case GOLD -> setColorRGB(255,255,0);
+            case RAINBOW -> rainbow();
+            case BROWN -> setColorRGB(120, 90, 7);
         }
     }
     private void rainbow(){
